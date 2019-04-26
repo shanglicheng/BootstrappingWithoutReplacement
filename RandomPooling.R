@@ -18,7 +18,7 @@ myRandomPooling = function(matrix1, matrix2, sn, group1Inf, group2Inf, outDir, p
   difgene.Group1.p = rep(2, nrow(matrix1))
   difgene.Group2.p = rep(2, nrow(matrix1))
   
-  poolingVec = c(3:min(col(matrix1), col(matrix2)))
+  poolingVec = c(3 : (min(col(matrix1), col(matrix2)) - 1))
   
   for ( sampleNum in poolingVec) {
     for(r in (1:sn)) {
