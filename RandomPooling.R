@@ -1,13 +1,14 @@
 ########################
-# sn: The duplicate times for each pooling
-# matrix1: the read counts matrix of group 1, the rows represent genes and the columns represent samples
-# matrix2: the read counts matrix of group 2, the rows represent genes and the columns represent samples
+#sn: The repeating times for each pooling
+#matrix1: the read counts matrix of group 1, the rows represent genes and the columns represent samples
+#matrix2: the read counts matrix of group 2, the rows represent genes and the columns represent samples
 #group1Inf: the vector of the sample library.
 #group2Inf: the vector of the sample library.
 #outDir: The output directory.
-#parallel_TF: to parallelly run DESeq2
-#ncores: the number of cores used for running DESeq2
-myRandomPooling = function(matrix1, matrix2, sn, group1Inf, group2Inf, outDir, parallel_TF, ncores){
+#parallel_TF: to parallelly run DESeq2.
+#ncores: the number of cores used for running DESeq2.
+#paired_TF: to paired the samples in comparison or not.
+myRandomPooling = function(matrix1, matrix2, sn, group1Inf, group2Inf, outDir, parallel_TF, ncores, paired_TF){
   
   difgeneNum.df = c(0, 0)
   difgeneNum.Group1 = c(0, 0)
@@ -26,6 +27,7 @@ myRandomPooling = function(matrix1, matrix2, sn, group1Inf, group2Inf, outDir, p
       matrix1.tmp = matrix1[,index.spl]; 
       group1.tmp = data.frame(Type = c(group1Inf)[index.spl],Time = c(group1Inf)[index.spl])
       
+      if ( paired_TF == FALSE ) {index.spl = sample(1:ncol(matrix2),sampleNum)}
       matrix2.tmp = matrix2[,index.spl]; 
       group2.tmp = data.frame(Type = c(group2Inf)[index.spl],Time = c(group2Inf)[index.spl])
       
