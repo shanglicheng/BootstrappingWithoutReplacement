@@ -1,5 +1,5 @@
 ########################
-#sn: The repeating times for each sampling
+#sn: The repeating times for each strapping
 #matrix1: the read counts matrix of group 1, the rows represent genes and the columns represent samples
 #matrix2: the read counts matrix of group 2, the rows represent genes and the columns represent samples
 #group1Inf: the vector of the sample library.
