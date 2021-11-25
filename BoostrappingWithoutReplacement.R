@@ -8,7 +8,7 @@
 #parallel_TF: to parallelly run DESeq2.
 #ncores: the number of cores used for running DESeq2.
 #paired_TF: to paired the samples in comparison or not.
-myRandomPooling = function(matrix1, matrix2, sn, group1Inf, group2Inf, outDir, parallel_TF, ncores, paired_TF){
+RandomPooling = function(matrix1, matrix2, sn, group1Inf, group2Inf, outDir, parallel_TF, ncores, paired_TF){
   
   difgeneNum.df = c(0, 0)
   difgeneNum.Group1 = c(0, 0)
